@@ -45,15 +45,15 @@ jobs:
           npm ci
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: starting-project
+    
     needs: install-deps
     steps:
       - name: Testing
         run: echo "testing"
       - name: Building
-        run: npm run build
+        run: |
+          ls -R
+          npm run build
       - name: Deploy
         run: echo "Deploy to nonprod"
       
