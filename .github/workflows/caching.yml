@@ -37,7 +37,9 @@ jobs:
           key: ${{ steps.cache-key.outputs.CACHE_KEY }}
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          echo ${{ steps.cache-key.outputs.CACHE_KEY }}
+          npm ci
   build:
     runs-on: ubuntu-latest
     needs: install-deps
