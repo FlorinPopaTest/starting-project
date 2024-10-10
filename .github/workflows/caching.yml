@@ -16,24 +16,30 @@ on:
           - 21.x
         default: 20.x
 jobs:
-  build:
+  install-deps:
     runs-on: ubuntu-latest
+    outputs:
+      deps-cache-key: ${{ steps.cache-key.outputs.CACHE_KEY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v3
-        id: cache
         with:
           node-version: ${{ inputs.node-version }}
+      - name: Calculate cache key
+        id: cache-key
+        run: echo "CACHE_KEY=deps-node-modules-${{ hashFiles('package-lock.json') }} >> "$GITHUB_OUTPUT"
       - name: Download cached dependencies
         uses: actions/cache@v3
         with:
-          path: node-modules
-          key: deps-node-modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ steps.cahce-key.outputs.CACHE_KEY }}
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - name: Testing
         run: echo "testing"
       - name: Building
