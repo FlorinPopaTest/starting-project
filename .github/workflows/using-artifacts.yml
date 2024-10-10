@@ -29,6 +29,7 @@ jobs:
         with:
           name: app
           path: build
+          run: ls -R
 
   deploy:
     runs-on: ubuntu-latest
