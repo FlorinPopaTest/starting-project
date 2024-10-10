@@ -2,6 +2,7 @@ name: Using Caching
 
 on:
   workflow_dispatch:
+    
     inputs:
       use-cache:
         description: Whether to execute step cache
@@ -44,6 +45,9 @@ jobs:
           npm ci
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
     needs: install-deps
     steps:
       - name: Testing
