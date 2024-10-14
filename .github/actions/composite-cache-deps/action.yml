@@ -17,10 +17,10 @@ runs:
     - name: Setup NodeJS version ${{ inputs.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ input.node-version }}
+        node-version: ${{ inputs.node-version }}
     - name: Cache dependencies
       id: cache
-      use: action/cache@v3
+      use: actions/cache@v3
       with:
         path: ${{ inputs.working-dir }}/node-modules
         key: node-modules-${{ hashFiles('${{ inputs.working-dir }}/package-lock.json') }}
