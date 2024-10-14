@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setupe Node and NPM
-        run: ls -R
+        run: cd ./; ls -R
         
