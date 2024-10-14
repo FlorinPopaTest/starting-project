@@ -7,6 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Setupe Node and NPM
-        run: cd ./; ls -R
+        uses: ./.github/actions/composite-cache-deps
+        with:
+          node-version: 20.x
+          working-dir: .
         
