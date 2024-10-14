@@ -28,15 +28,17 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: build
+          path: dist
+          run: ls -R
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: app
-          path: build
+          path: dist
       - name: Show folder structure
         run: ls -R
