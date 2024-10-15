@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 !.github/actions/**/node_modules/
+!.github/actions/**/node_modules/**/dist
 
 # Editor directories and files
 .vscode/*
