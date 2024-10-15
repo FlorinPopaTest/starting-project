@@ -1,0 +1,6 @@
+name: Update NPM Dependencies
+description: Checks if there update to NPM
+
+runs:
+  using: node20
+  main: index.js
