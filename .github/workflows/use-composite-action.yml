@@ -1,7 +1,15 @@
 name: Composite Custom Action
+run-name: Composite Custom Action | env - ${{ inputs.target-env }}
 
 on:
   workflow_dispatch:
+    inputs:
+      target-env:
+        description: Which enviroenment to target
+        type: choice
+        options:
+          - dev
+          - prod
 
 jobs:
   build:
@@ -13,4 +21,3 @@ jobs:
         with:
           node-version: 20.x
           working-dir: .
-        
