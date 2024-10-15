@@ -24,7 +24,7 @@ runs:
         node-version: ${{ inputs.node-version }}
     - name: Cache dependencies
       id: cache
-      use: action/cache@v3
+      uses: action/cache@v3
       with:
         path: ${{ inputs.working-dir }}/node-modules
         key: node-modules-${{ inputs.target-env }}-${{ hashFiles('${{ inputs.working-dir }}/package-lock.json') }}
