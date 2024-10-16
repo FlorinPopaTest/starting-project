@@ -1,8 +1,18 @@
 name: Javascript Custom Action
-run-name: Javascript Custom Action | env - ${{ inputs.target-env }}
+run-name: Javascript Custom Action | BB - ${{inputs.base-branch}} - TB - ${{inputs.target-branch}}-WD-${{inputs.working-dir}}
 
 on:
   workflow_dispatch:
+    inputs:
+      base-branch:
+        type: string
+        default: main
+      target-branch:
+        type: string
+        default: update-dependencies
+      working-dir:
+        type: string
+        default: .
 
 jobs:
   build:
@@ -11,3 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check for dependency updates
         uses: ./.github/actions/js-dependency-update
+        with:
+          base-branch: ${{ inputs.base-branch }}
+          target-branch: ${{ inputs.target-branch }}
+          working-directory: ${{ inputs.working-dir }}
