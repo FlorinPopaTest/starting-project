@@ -12,7 +12,7 @@ on:
         default: update-dependencies
       working-dir:
         type: string
-        default: .
+        default: '.'
 
 jobs:
   build:
