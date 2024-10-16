@@ -3,7 +3,7 @@ const exec = require('@actions/core');
 
 const validateBranchName = ({ branchName }) =>
   /^[a-zA-Z0-9_\-\.\/]+$/.test(branchName);
-const validateDirName = ({ dirName }) => /^[a-zA-Z0-9_\-\/]+$/.test(dirName);
+const validateDirName = ({ dirName }) => /^[a-zA-Z0-9_\-\.\/]+$/.test(dirName);
 
 async function run() {
   /*
