@@ -5,8 +5,8 @@ inputs:
   url:
     description: url to ping
     required: true
-  max_trails: '5'
-  description: max number of trials
+  max_trails:
+    description: max number of trials
     default: '10'
     required: false
   delay:
