@@ -1,0 +1,19 @@
+name: Ping URL
+description: pin url
+
+inputs:
+  url:
+    description: url to ping
+    required: true
+  max_trails:
+  description: max number of trials
+    default: '10'
+    required: false
+  delay:
+    description: delay in seconds
+    default: '5'
+    required: false
+
+runs:
+  using: docker
+  image: Dockerfile

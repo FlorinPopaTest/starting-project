@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+venv/
 *.local
 !.github/actions/**/node_modules/
 !.github/actions/**/node_modules/**/dist
