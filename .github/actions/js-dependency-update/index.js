@@ -55,7 +55,7 @@ async function run() {
       cwd: workingDir,
     });
 
-    const octokit = github.octokit(ghToken);
+    const octokit = github.getOctokit(ghToken);
 
     try {
       await octokit.rest.pulls.create({
