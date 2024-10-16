@@ -40,6 +40,8 @@ async function run() {
   const gitStatus = await exec.getExecOutput('git status -s package*.json');
   if (gitStatus.stdout.length > 0) {
     core.info('[js-dependdency-update] : There are updates available');
+    await exec.exec('git config user.name "gh-automation"');
+    await exec.exec('git config user.email "gh-automation@email.com"');
     await exec.exec('git checkout -b ${targetBranch}', [], {
       cwd: workingDir,
     });
