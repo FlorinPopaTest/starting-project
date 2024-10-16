@@ -42,7 +42,7 @@ async function run() {
     core.info('[js-dependdency-update] : There are updates available');
     await exec.exec('git config user.name "gh-automation"');
     await exec.exec('git config user.email "gh-automation@email.com"');
-    await exec.exec('git checkout -b ${targetBranch}', [], {
+    await exec.exec(`git checkout -b ${targetBranch}`, [], {
       cwd: workingDir,
     });
     await exec.exec('git add package.json package-lock.json', [], {
@@ -51,7 +51,7 @@ async function run() {
     await exec.exec('git commit -m "core: update dependencies"', [], {
       cwd: workingDir,
     });
-    await exec.exec('git push -u origin ${targetBranch} --force', [], {
+    await exec.exec(`git push -u origin ${targetBranch} --force`, [], {
       cwd: workingDir,
     });
 
