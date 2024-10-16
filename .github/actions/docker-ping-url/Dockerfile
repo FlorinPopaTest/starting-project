@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 RUN ls
 RUN python -V
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
