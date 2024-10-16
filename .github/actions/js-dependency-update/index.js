@@ -25,7 +25,7 @@ async function run() {
     core.setFailed('invalid target branch name');
     return;
   }
-  if (!validatedirName({ dirName: workingDir })) {
+  if (!validateDirName({ dirName: workingDir })) {
     core.setFailed('invalid directory name');
     return;
   }
