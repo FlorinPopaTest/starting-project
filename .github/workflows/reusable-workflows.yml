@@ -32,4 +32,4 @@ jobs:
         id: deploy
         run: |
           echo "Deploying build artifacts"
-          echo "urlhttps://www.google.ro" >> "GITHUB_OUTPUT"
+          echo "url=https://www.google.ro" >> "GITHUB_OUTPUT"
