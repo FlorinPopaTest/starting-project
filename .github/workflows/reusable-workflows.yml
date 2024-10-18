@@ -22,7 +22,7 @@ jobs:
       url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
       - name: Build
         id: build
         run: |
