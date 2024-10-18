@@ -1,0 +1,12 @@
+name: Outside Reusable workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/reusable-workflows.yml
+    with:
+      target-directory: dummy-dir
+  e2e-test:
+    uses: FlorinPopaTest/gh-reusable-actions/.github/workflows/e2e.yml@main
