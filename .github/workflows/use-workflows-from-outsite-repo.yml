@@ -10,3 +10,4 @@ jobs:
       target-directory: dummy-dir
   e2e-test:
     uses: FlorinPopaTest/gh-reusable-actions/.github/workflows/e2e.yml@main
+    needs: deploy
